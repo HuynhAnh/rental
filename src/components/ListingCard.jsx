@@ -17,7 +17,7 @@ function ListingCard({ title, price, location, image, fbLink }) {
         </h2>
 
         <p className="text-2xl font-extrabold text-indigo-600 mb-2">
-          ${price.toLocaleString()}
+          {price} million
           <span className="text-sm font-normal text-gray-400">/mo</span>
         </p>
 

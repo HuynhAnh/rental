@@ -8,6 +8,15 @@ function Home() {
   const [search, setSearch] = useState('')
   const [selectedType, setSelectedType] = useState('All')
   const [onlyAvailable, setOnlyAvailable] = useState(false)
+  const [priceRange, setPriceRange] = useState('All')
+
+  const PRICE_RANGES = [
+    { label: 'All prices', value: 'All' },
+    { label: 'Under 3 million', value: 'under3' },
+    { label: '3–5 million', value: '3to5' },
+    { label: '5–10 million', value: '5to10' },
+    { label: 'Above 10 million', value: 'above10' },
+  ]
 
   const filtered = useMemo(() => {
     return listings.filter((l) => {
@@ -16,9 +25,15 @@ function Home() {
         l.location.toLowerCase().includes(search.toLowerCase())
       const matchesType = selectedType === 'All' || l.type === selectedType
       const matchesAvailability = !onlyAvailable || l.available
-      return matchesSearch && matchesType && matchesAvailability
+      const matchesPrice =
+        priceRange === 'All' ||
+        (priceRange === 'under3' && l.price < 3) ||
+        (priceRange === '3to5' && l.price >= 3 && l.price < 5) ||
+        (priceRange === '5to10' && l.price >= 5 && l.price < 10) ||
+        (priceRange === 'above10' && l.price >= 10)
+      return matchesSearch && matchesType && matchesAvailability && matchesPrice
     })
-  }, [search, selectedType, onlyAvailable])
+  }, [search, selectedType, onlyAvailable, priceRange])
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -75,6 +90,18 @@ function Home() {
             {type}
           </button>
         ))}
+
+        <select
+          value={priceRange}
+          onChange={(e) => setPriceRange(e.target.value)}
+          className="px-3 py-1.5 rounded-full text-sm font-medium border border-gray-300 bg-white text-gray-600 outline-none cursor-pointer hover:border-indigo-400 transition-colors duration-200"
+        >
+          {PRICE_RANGES.map((range) => (
+            <option key={range.value} value={range.value}>
+              {range.label}
+            </option>
+          ))}
+        </select>
 
         <label className="ml-auto flex items-center gap-2 text-sm text-gray-600 cursor-pointer select-none">
           <input
