@@ -1,13 +1,36 @@
 import { useState, useMemo } from 'react'
-import listings from '../data/listings.json'
+import initialListings from '../data/listings.json'
 import ListingGrid from '../components/ListingGrid'
-
-const ALL_TYPES = ['All', ...new Set(listings.map((l) => l.type))]
+import AddListingForm from '../components/AddListingForm'
 
 function Home() {
+  const [listings, setListings] = useState(initialListings)
+  const [showForm, setShowForm] = useState(false)
   const [search, setSearch] = useState('')
   const [selectedType, setSelectedType] = useState('All')
   const [onlyAvailable, setOnlyAvailable] = useState(false)
+  const [priceRange, setPriceRange] = useState('All')
+
+  const ALL_TYPES = useMemo(
+    () => ['All', ...new Set(listings.map((l) => l.type))],
+    [listings]
+  )
+
+  function handleAddListing(newListing) {
+    setListings((prev) => [
+      ...prev,
+      { ...newListing, id: Date.now(), available: true },
+    ])
+    setShowForm(false)
+  }
+
+  const PRICE_RANGES = [
+    { label: 'All prices', value: 'All' },
+    { label: 'Under 3 million', value: 'under3' },
+    { label: '3–5 million', value: '3to5' },
+    { label: '5–10 million', value: '5to10' },
+    { label: 'Above 10 million', value: 'above10' },
+  ]
 
   const filtered = useMemo(() => {
     return listings.filter((l) => {
@@ -16,9 +39,15 @@ function Home() {
         l.location.toLowerCase().includes(search.toLowerCase())
       const matchesType = selectedType === 'All' || l.type === selectedType
       const matchesAvailability = !onlyAvailable || l.available
-      return matchesSearch && matchesType && matchesAvailability
+      const matchesPrice =
+        priceRange === 'All' ||
+        (priceRange === 'under3' && l.price < 3) ||
+        (priceRange === '3to5' && l.price >= 3 && l.price < 5) ||
+        (priceRange === '5to10' && l.price >= 5 && l.price < 10) ||
+        (priceRange === 'above10' && l.price >= 10)
+      return matchesSearch && matchesType && matchesAvailability && matchesPrice
     })
-  }, [search, selectedType, onlyAvailable])
+  }, [listings, search, selectedType, onlyAvailable, priceRange])
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -58,6 +87,25 @@ function Home() {
         </div>
       </header>
 
+      {/* Add listing toggle + form */}
+      <div className="max-w-5xl mx-auto px-4 pt-6">
+        <button
+          onClick={() => setShowForm((v) => !v)}
+          className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors duration-200"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={showForm ? 'M6 18L18 6M6 6l12 12' : 'M12 4v16m8-8H4'} />
+          </svg>
+          {showForm ? 'Cancel' : 'Add Listing'}
+        </button>
+
+        {showForm && (
+          <div className="mt-4">
+            <AddListingForm onAdd={handleAddListing} />
+          </div>
+        )}
+      </div>
+
       {/* Filters */}
       <section className="max-w-5xl mx-auto px-4 py-6 flex flex-wrap items-center gap-3">
         <span className="text-sm font-semibold text-gray-600">Filter:</span>
@@ -75,6 +123,18 @@ function Home() {
             {type}
           </button>
         ))}
+
+        <select
+          value={priceRange}
+          onChange={(e) => setPriceRange(e.target.value)}
+          className="px-3 py-1.5 rounded-full text-sm font-medium border border-gray-300 bg-white text-gray-600 outline-none cursor-pointer hover:border-indigo-400 transition-colors duration-200"
+        >
+          {PRICE_RANGES.map((range) => (
+            <option key={range.value} value={range.value}>
+              {range.label}
+            </option>
+          ))}
+        </select>
 
         <label className="ml-auto flex items-center gap-2 text-sm text-gray-600 cursor-pointer select-none">
           <input
