@@ -99,7 +99,14 @@ function Home() {
         {filtered.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
             {filtered.map((listing) => (
-              <ListingCard key={listing.id} listing={listing} />
+              <ListingCard
+                key={listing.id}
+                title={listing.title}
+                price={listing.price}
+                location={listing.location}
+                image={listing.image}
+                fbLink={listing.fbLink}
+              />
             ))}
           </div>
         ) : (
