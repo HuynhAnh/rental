@@ -10,7 +10,8 @@
     "type": "Studio",
     "available": true,
     "image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80",
-    "description": "Bright and airy studio in a prime downtown location. Walking distance to subway, restaurants, and shopping."
+    "description": "Bright and airy studio in a prime downtown location. Walking distance to subway, restaurants, and shopping.",
+    "fbLink": "https://www.facebook.com/marketplace/item/1"
   },
   {
     "id": 2,
@@ -23,7 +24,8 @@
     "type": "Apartment",
     "available": true,
     "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80",
-    "description": "Charming apartment with hardwood floors, exposed brick, and a private balcony. Pet friendly."
+    "description": "Charming apartment with hardwood floors, exposed brick, and a private balcony. Pet friendly.",
+    "fbLink": "https://www.facebook.com/marketplace/item/2"
   },
   {
     "id": 3,
@@ -36,7 +38,8 @@
     "type": "Townhouse",
     "available": true,
     "image": "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=600&q=80",
-    "description": "Beautiful townhouse with stunning Manhattan views, an eat-in kitchen, and private backyard."
+    "description": "Beautiful townhouse with stunning Manhattan views, an eat-in kitchen, and private backyard.",
+    "fbLink": "https://www.facebook.com/marketplace/item/3"
   },
   {
     "id": 4,
@@ -49,7 +52,8 @@
     "type": "Penthouse",
     "available": false,
     "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80",
-    "description": "Stunning penthouse with panoramic city views, high-end finishes, and a private rooftop terrace."
+    "description": "Stunning penthouse with panoramic city views, high-end finishes, and a private rooftop terrace.",
+    "fbLink": "https://www.facebook.com/marketplace/item/4"
   },
   {
     "id": 5,
@@ -62,7 +66,8 @@
     "type": "Condo",
     "available": true,
     "image": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600&q=80",
-    "description": "Modern condo with open-plan living, floor-to-ceiling windows, and in-unit laundry."
+    "description": "Modern condo with open-plan living, floor-to-ceiling windows, and in-unit laundry.",
+    "fbLink": "https://www.facebook.com/marketplace/item/5"
   },
   {
     "id": 6,
@@ -75,6 +80,7 @@
     "type": "Apartment",
     "available": true,
     "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&q=80",
-    "description": "Classic pre-war apartment with high ceilings, original moldings, and a sunny corner exposure."
+    "description": "Classic pre-war apartment with high ceilings, original moldings, and a sunny corner exposure.",
+    "fbLink": "https://www.facebook.com/marketplace/item/6"
   }
 ]
