@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "title": "Modern Studio in the Heart of the City",
+    "location": "Downtown, New York, NY",
+    "price": 1800,
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "area": 480,
+    "type": "Studio",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80",
+    "description": "Bright and airy studio in a prime downtown location. Walking distance to subway, restaurants, and shopping."
+  },
+  {
+    "id": 2,
+    "title": "Cozy 1-Bedroom Apartment",
+    "location": "Brooklyn, New York, NY",
+    "price": 2400,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "area": 720,
+    "type": "Apartment",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80",
+    "description": "Charming apartment with hardwood floors, exposed brick, and a private balcony. Pet friendly."
+  },
+  {
+    "id": 3,
+    "title": "Spacious 2-Bedroom Townhouse",
+    "location": "Hoboken, NJ",
+    "price": 3200,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "area": 1100,
+    "type": "Townhouse",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=600&q=80",
+    "description": "Beautiful townhouse with stunning Manhattan views, an eat-in kitchen, and private backyard."
+  },
+  {
+    "id": 4,
+    "title": "Luxury 3-Bedroom Penthouse",
+    "location": "Midtown, New York, NY",
+    "price": 8500,
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "area": 2200,
+    "type": "Penthouse",
+    "available": false,
+    "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80",
+    "description": "Stunning penthouse with panoramic city views, high-end finishes, and a private rooftop terrace."
+  },
+  {
+    "id": 5,
+    "title": "Sun-Filled 2-Bedroom Condo",
+    "location": "Jersey City, NJ",
+    "price": 2900,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "area": 950,
+    "type": "Condo",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600&q=80",
+    "description": "Modern condo with open-plan living, floor-to-ceiling windows, and in-unit laundry."
+  },
+  {
+    "id": 6,
+    "title": "Charming 1-Bedroom in Historic Building",
+    "location": "Upper West Side, New York, NY",
+    "price": 2750,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "area": 680,
+    "type": "Apartment",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&q=80",
+    "description": "Classic pre-war apartment with high ceilings, original moldings, and a sunny corner exposure."
+  }
+]
