@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import listings from '../data/listings.json'
-import ListingCard from '../components/ListingCard'
+import ListingGrid from '../components/ListingGrid'
 
 const ALL_TYPES = ['All', ...new Set(listings.map((l) => l.type))]
 
@@ -97,17 +97,8 @@ function Home() {
       {/* Listings grid */}
       <main className="max-w-5xl mx-auto px-4 pb-16">
         {filtered.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-            {filtered.map((listing) => (
-              <ListingCard
-                key={listing.id}
-                title={listing.title}
-                price={listing.price}
-                location={listing.location}
-                image={listing.image}
-                fbLink={listing.fbLink}
-              />
-            ))}
+          <div className="mt-4">
+            <ListingGrid listings={filtered} />
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center py-24 text-gray-400">
